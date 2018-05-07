@@ -2,11 +2,12 @@
 # Maintainer: Oscar Fuentes <ofv@wanadoo.es>
 
 _realname='emacs'
+_branch='emacs-26'
 pkgbase=mingw-w64-${_realname}-git
 pkgname="${MINGW_PACKAGE_PREFIX}-${_realname}-git"
-pkgver=r133025.6e362a32bc
+pkgver=r131756.1d732d699d
 pkgrel=1
-pkgdesc="The extensible, customizable, self-documenting, real-time display editor (mingw-w64)"
+pkgdesc="The extensible, customizable, self-documenting, real-time display editor (git $_branch) (mingw-w64) with ime-patch"
 url="https://www.gnu.org/software/${_realname}/"
 license=('GPL3')
 arch=('any')
@@ -32,7 +33,7 @@ makedepends=("${MINGW_PACKAGE_PREFIX}-gcc"
 # Don't zip info files because the built-in info reader uses gzip to
 # decompress them. gzip is not available as a mingw binary.
 options=('strip' '!zipman')
-source=("${_realname}"::"git+https://git.savannah.gnu.org/git/${_realname}.git"
+source=("${_realname}"::"git+https://git.savannah.gnu.org/git/${_realname}.git#branch=${_branch}"
         'image.c.diff'
         'lread.c.diff'
         'emacs-26.1-rc1-w32-ime.diff')
